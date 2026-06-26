@@ -15,7 +15,7 @@ jobs:
     - name: Copiar codigo del repositorio
       uses: actions/checkout@v4
 
-    # 2. Configurar el entorno de Node.js
+    # 2.Configurar el entorno de Node.js
     - name: Configurar Node.js
       uses: actions/setup-node@v4
       with:
