@@ -17,11 +17,11 @@ jobs:
       uses: actions/checkout@v4
 
     # 2. Configura el entorno de Node.js (esencial para el frontend del colegio)
+   # 2. Configurar el entorno de Node.js
     - name: Configurar Node.js
       uses: actions/setup-node@v4
       with:
         node-version: 20
-        cache: 'npm'
 
     # 3. Instala los módulos necesarios del sistema (asistencia, calificaciones, etc.)
     - name: Instalar dependencias del sistema escolar
