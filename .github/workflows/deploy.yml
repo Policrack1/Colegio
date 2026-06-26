@@ -1,0 +1,32 @@
+name: Integracion Continua - Sistema Escolar Hemingway
+
+# El pipeline se activa automáticamente al subir código a la rama principal
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest # Ejecuta las verificaciones en un servidor virtual limpio
+
+    steps:
+    # 1. Descarga el código del sistema escolar en el servidor de GitHub
+    - name: Copiar codigo del repositorio
+      uses: actions/checkout@v4
+
+    # 2. Configura el entorno de Node.js (esencial para el frontend del colegio)
+    - name: Configurar Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 20
+        cache: 'npm'
+
+    # 3. Instala los módulos necesarios del sistema (asistencia, calificaciones, etc.)
+    - name: Instalar dependencias del sistema escolar
+      run: npm install
+
+    # 4. Compila la aplicación (Verifica que no existan errores visuales ni lógicos)
+    - name: Compilar Frontend Escolar (Build)
+      run: npm run build
